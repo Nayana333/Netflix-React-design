@@ -28,9 +28,12 @@ function RowPost(props) {
   const handleMovie=(id)=>{
 
     console.log(id);
-    axios.get(`/movie/${id}/videos/api_key?=${API_KEY}&language=en-US`).then(response=>{
-      console.log(response.data);
-    })
+    console.log(API_KEY);
+    axios.get(`/movie/${id}/videos?api_key=${API_KEY}`).then((response)=>{
+      console.log(response);
+      
+    }
+    )
   }
   return (
     <div className='row'>
@@ -39,7 +42,7 @@ function RowPost(props) {
         {movies.map((obj)=>
           <img onClick={() => handleMovie(obj.id)} src={`${imageUrl+obj.backdrop_path}`} alt='posters' className={props.isSmall ? 'smallPoster' : 'poster'}></img> 
   
-        )}
+        )}                                                                                                                                   
      
 
       </div>
